@@ -2,7 +2,7 @@
 vim-quick-radon
 ========================
 
-vim-quick-radon is a Vim plugin that applies randon to your current file.
+vim-quick-radon is a Vim plugin that applies radon to your current file.
 Radon is a Python tool that computes various metrics from the source code.
 
 Required
