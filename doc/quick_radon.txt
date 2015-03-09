@@ -1,0 +1,78 @@
+*quikc_radon.txt*   
+
+Author: tell-k  (ffk2005 AT gmail DOT com)
+For Vim version 7 and above
+Last change: 2015 Mar 9
+
+1. Overview         |quick-radon-overview|
+2. Required         |quick-radon-required|
+3. Installation     |quick-radon-installation|
+4. Usage            |quick-radon-usage|
+5. Customization    |quick-radon-customization|
+6. License          |quick-radon-license|
+
+==============================================================================
+1. Overview                                                *quick-radon-overview*
+
+vim-quick-radon is a Vim plugin that applies randon to your current file.
+Radon is a Python tool that computes various metrics from the source code.
+
+==============================================================================
+2. Required                                                *quick-radon-required*
+
+radon
+>
+    https://pypi.python.org/pypi/radon/
+<
+
+==============================================================================
+3. Installation                                        *quick-radon-installation*
+
+Simply put the contents of this repository in your ~/.vim/bundle directory.
+
+==============================================================================
+4. Usage                                                      *quick-radon-usage*
+
+Call function
+
+>
+ :QuickRadon
+<
+
+Result example
+
+>
+ [ Cyclomatic Complexity ]
+ M 26:4 GoolabsAPI.__getattr__ - A
+ C 15:0 GoolabsAPI - A
+ M 20:4 GoolabsAPI.__init__ - A
+ [ Maintainability Index ]
+ goolabs/client.py - A
+ [ Raw Metrics ]
+ LOC: 43
+ LLOC: 26
+ SLOC: 35
+ Comments: 2
+ Multi: 7
+ Blank: 8
+ - Comment Stats
+     (C % L): 5%
+     (C % S): 6%
+     (C + M % L): 21%
+<
+
+You can check the results of the three commands.
+
+* [ Cyclomatic Complexity ] ... radon cc 
+* [ Maintainability Index ] ... radon mi
+* [ Raw Metrics ] ... radon raw
+
+==============================================================================
+5. Customization                                      *quick-radon-customization*
+
+TODO
+
+==============================================================================
+6. license                                                  *quick-radon-license*
+
+MIT license
