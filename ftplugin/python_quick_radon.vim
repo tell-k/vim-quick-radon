@@ -2,7 +2,7 @@
 " File:        python_quick_radon.vim
 " Author:      tell-k <ffk2005[at]gmail.com>
 " Last Change: 9-Mar-2015.
-" Version:     0.1.0
+" Version:     0.1.1
 " WebPage:     https://github.com/tell-k/vim-quick-radon
 " License:     MIT Licence
 "==========================================================
@@ -12,6 +12,7 @@
 if exists("b:loaded_quick_radon_ftplugin")
    finish
 endif
+
 let b:loaded_quick_radon_ftplugin=1
 let s:radon_current_buffer=''
 
@@ -29,6 +30,11 @@ if !exists("*QuickRadon()")
     endfunction
 
     function QuickRadon()
+
+        if bufnr("quick_radon") > 0
+            silent execute "bdelete " . bufnr("quick_radon")
+        endif
+
         let s:radon_current_buffer=bufnr("%")
         if exists("g:radon_cmd")
             let s:radon_cmd=g:radon_cmd
@@ -41,22 +47,8 @@ if !exists("*QuickRadon()")
             return
         endif
 
-        set lazyredraw   " delay redrawing
-
-        " store old grep settings (to restore later)
-        let l:old_gfm=&grepformat
-        let l:old_gp=&grepprg
-
-        " write any changes before continuing
-        if &readonly == 0
-            update
-        endif
-
-        " restore grep settings
-        let &grepformat=l:old_gfm
-        let &grepprg=l:old_gp
-
         let target_file = expand('%')
+
         botright new quick_radon
         setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile nowrap
         silent execute '$read !echo "[ Cyclomatic Complexity ]"'
@@ -72,6 +64,8 @@ if !exists("*QuickRadon()")
         silent execute ':normal G10kdd'
         silent execute ':%s/^    //g'
         silent execute ':noh'
+        silent execute ':normal gg'
+
         setlocal nomodifiable
         syntax match Number /-\sA$/
         syntax match NonText /-\sB$/
