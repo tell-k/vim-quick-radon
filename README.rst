@@ -22,7 +22,7 @@ Call function::
 
  :QuickRadon
 
-Result example::
+Result example
 
 .. image:: https://dl.dropboxusercontent.com/spa/ghyn87yb4ejn5yy/r-p2wzdx.png
 
