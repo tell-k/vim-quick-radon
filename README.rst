@@ -37,6 +37,11 @@ Customization
 
 TODO
 
+Alternatives
+=====================
+
+* `vim-radon <https://github.com/rubik/vim-radon>`_. Created by radon original author.
+
 License
 =====================
 
